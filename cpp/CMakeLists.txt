@@ -10,3 +10,8 @@ set(CMAKE_CXX_FLAGS_RELEASE "-O2 -march=native -DNDEBUG")
 
 add_library(books INTERFACE)
 target_include_directories(books INTERFACE include)
+
+add_executable(oracle_test tests/oracle_test.cpp)
+target_link_libraries(oracle_test books)
+enable_testing()
+add_test(NAME oracle COMMAND oracle_test)
